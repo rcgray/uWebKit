@@ -1,31 +1,29 @@
-### uWebKit for Unity Pro - Binary and Script Repository
+#### Hello and please pardon the dust, we're currently getting the uWebKit 2.0 Beta ready
 
-![alt uWebKit](http://uwebkit.com/wp-content/uploads/2013/01/uWebKit_OverviewSplash3.jpg)
+### uWebKit for Unity Pro - Source Repository
 
-This repository contains the latest [uWebKit](http://www.uWebKit.com) binary and C# script sources.
+![alt uWebKit](http://www.uwebkit.com/static/downloads/uwebkit/uWebKit_FeaturePage.jpg)
 
-### Download Package for Unity 3.5 & Unity 4 
+This repository contains the full C++ and C# source code to [uWebKit 2.0](http://www.uWebKit.com) 
 
-#### Please visit http://www.uWebKit.com to receive an activation key
+### Download uWebKit 2.0 Demo
 
-##### Current Stable Version (1.4)
+#### Demo binaries coming soon!
 
-[uWebKit 1.4 Package Download](http://www.uwebkit.com/static/downloads/uwebkit/uWebKit_v14.unitypackage) 
+### Purchase uWebKit Binary License in the Unity Asset Store
 
-##### Current Beta Version (1.5b)
-
-[uWebKit 1.5b Package Download](http://www.uwebkit.com/static/downloads/uwebkit/uWebKit_v15b.unitypackage)
+#### Binary licenses coming soon!
 
 #### Platforms
 
-uWebKit currently supports Windows (32 and 64 bit deploys), OSX (32 bit with 64 bit in the works), and iOS 
+uWebKit supports 32 and 64 bit Windows and OSX with optimized rendering support for Direct3D9/11 and OpenGL
 
-### Full C++ Source Code Licenses  
+### Source Code License
 
-If you're interested in a **full C++ source code license hosted on GitHub** please contact: sales@uwebkit.com   
+If you're interested in a [Source License](https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/UWEBKIT_LICENSE_SOURCE.txt) please contact: sales@uwebkit.com   
 
 ### Issues
 
-Please report issues with uWebKit using the [GitHub Issue Tracker](https://github.com/TheEngineCompany/uWebKit/issues)
+Please report issues with uWebKit using the [GitHub Issue Tracker](https://github.com/uWebKit/uWebKit/issues)
 
-uWebKit is (C) 2013 The Engine Co, LLC
+uWebKit is (C) 2014 The Engine Co, LLC
