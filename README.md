@@ -26,4 +26,4 @@ If you're interested in a [Source License](https://github.com/uWebKit/uWebKit/bl
 
 Please report issues with uWebKit using the [GitHub Issue Tracker](https://github.com/uWebKit/uWebKit/issues)
 
-uWebKit is (C) 2014 The Engine Co, LLC
+uWebKit is (C) 2014 THUNDERBEAST GAMES, LLC
