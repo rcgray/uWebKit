@@ -7,9 +7,9 @@
   * for details
 *******************************************/
 
+#include <map>
 #include "UWKCommon/uwk_keyboard.h"
 #include "UWKCommon/uwk_message.h"
-
 #include "uwk_unity_keys.h"
 
 // ifdef mac
@@ -378,24 +378,33 @@ bool UnityKeyHasCharacter(uint32_t unityKeyCode)
 // end if
 
 static uint32_t lastEventKeyCode = 0;
-static uint32_t keyMap[4096];
+static std::map<uint32_t, uint32_t> keyCodes;
+
+static void SendKeyMessage(UWKMessage& msg, UnityKeyEvent* keyEvent, int modifiers)
+{
+    msg.type = keyEvent->Type ? UMSG_KEY_DOWN : UMSG_KEY_UP;
+    msg.iParams[0] = keyEvent->KeyCode;
+    msg.iParams[1] = modifiers;
+    msg.iParams[2] = keyEvent->Character;
+
+    //UWKLog::LogVerbose("Web Key Event, Type:%i Modifiers:%i KeyCode:%i Character:%i",
+    //                   msg.type, msg.iParams[1], msg.iParams[0], msg.iParams[2]);
+
+}
 
 bool EncodeUnityKeyEvent(UnityKeyEvent* keyEvent, UWKMessage& msg)
 {
-    // Unity splits key events for Characters into 2 events for keydown with no Character
-    // reporting on key up, the following code is dependent on the first key down event
-    // (the one WITHOUT the character information, being received first followed immediately
-    // by the character one (ie. no other key downs in the meantime)
+    // Unity splits up key down/up into multiple events some with keycodes, some with characters
+    // these can come in different order depending on what keys are down as well (for instance cmd-c cmd-v)
 
-    // if not tab
-    if (keyEvent->Character != '\t' && keyEvent->KeyCode != 9)
-    {
-        // seeing this on cmd-v on OSX, getting single event
-        if (keyEvent->Character == keyEvent->KeyCode)
-        {
-            keyEvent->Character = 0;
-        }
-    }
+    // We can get a keycode with no character followed by a character with no keycode, in this case
+    // we will only get a key up with keycode, no character keyup
+
+    // We can get a single keydown, with character and keycode, and a corresponding single key up with
+    // keycode and character
+
+    //UWKLog::LogVerbose("Unity Key Event, Type:%u Modifiers:%u KeyCode:%u Character:%u",
+    //                   keyEvent->Type, keyEvent->Modifiers, keyEvent->KeyCode, keyEvent->Character);
 
     // Modifiers
     uint32_t modifiers = 0;
@@ -413,7 +422,6 @@ bool EncodeUnityKeyEvent(UnityKeyEvent* keyEvent, UWKMessage& msg)
         modifiers |= UWKKeyboard::Shift;
 
     /*
-
     if (keyEvent->Modifiers & UnityKeyModifier_CapsLock)
         modifiers |= UWKKeyboard::CapsLock;
 
@@ -425,39 +433,73 @@ bool EncodeUnityKeyEvent(UnityKeyEvent* keyEvent, UWKMessage& msg)
     */
 
 
-    if (UnityKeyHasCharacter(keyEvent->KeyCode) && (!modifiers || (modifiers & UWKKeyboard::Shift)))
+    // if we have a character and keycode coming in
+    if (keyEvent->Character && keyEvent->KeyCode)
     {
-        // this is an ansi event, so we will use the Character event which will come through next
-        lastEventKeyCode = keyEvent->KeyCode;
-        return false;
+        keyEvent->KeyCode = TranslateUnityKeyCode(keyEvent->KeyCode);
+        if ( keyEvent->KeyCode == UWKInvalidKeyCode)
+            return false;
+
+        SendKeyMessage(msg, keyEvent, modifiers);
+        return true;
     }
 
-    // we're going to try and ignore these for starts as we get keycodes as well from Unity
+    std::map<uint32_t, uint32_t>::iterator itr;
+
     if (keyEvent->Character)
     {
-        keyMap[lastEventKeyCode] = keyEvent->Character;
-        keyEvent->KeyCode = lastEventKeyCode;
+        itr = keyCodes.find(lastEventKeyCode);
+
+        if (itr == keyCodes.end())
+        {
+            keyCodes.insert(std::make_pair(lastEventKeyCode, keyEvent->Character));
+        }
     }
-    else
+
+    // check for ascii keycode
+    if (keyEvent->KeyCode && UnityKeyHasCharacter(keyEvent->KeyCode))
     {
-        // look up from map
-        if (msg.type == UMSG_KEY_UP && UnityKeyHasCharacter(keyEvent->KeyCode))
-            keyEvent->Character = keyMap[keyEvent->KeyCode];
+        uint32_t keyCode = keyEvent->KeyCode;
+
+        if (keyEvent->Type)
+        {
+            // key down
+            lastEventKeyCode = keyCode;
+
+            if (modifiers & UWKKeyboard::Shift)
+                lastEventKeyCode += 0xffff;
+
+            return false;
+        }
+        else
+        {
+            // key up
+            if (modifiers & UWKKeyboard::Shift)
+                keyCode += 0xffff;
+
+            itr = keyCodes.find(keyCode);
+            if (itr == keyCodes.end())
+                return false;
+
+            keyEvent->Character = itr->second;
+
+        }
     }
 
-    uint32_t keyCode = TranslateUnityKeyCode(keyEvent->KeyCode);
-    if (keyCode == UWKInvalidKeyCode)
+    if (!keyEvent->Character && keyEvent->KeyCode)
     {
-        return false;
+        keyEvent->KeyCode = TranslateUnityKeyCode(keyEvent->KeyCode);
+        if ( keyEvent->KeyCode == UWKInvalidKeyCode)
+            return false;
     }
 
-    msg.type = keyEvent->Type ? UMSG_KEY_DOWN : UMSG_KEY_UP;
+    if (keyEvent->Character)
+    {
+        modifiers &= ~UWKKeyboard::Shift;
+        keyEvent->KeyCode = keyEvent->Character;
+    }
 
-    msg.iParams[0] = keyCode;
-    msg.iParams[1] = modifiers;
-    msg.iParams[2] = keyEvent->Character;
-
-    //UWKLog::LogVerbose("Key Event: %i %i %i %i", keyEvent->Type ? 1 : 0, msg.iParams[0], msg.iParams[1], msg.iParams[2]);
+    SendKeyMessage(msg, keyEvent, modifiers);
 
     return true;
 }
