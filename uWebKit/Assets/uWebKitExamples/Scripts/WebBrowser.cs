@@ -202,6 +202,7 @@ class WebBrowser : MonoBehaviour
 
 		if (view != null)
 		{	
+
 	        if (Event.current.type == EventType.Layout)
 	        {
 		        Vector3 mousePos = Input.mousePosition;
@@ -209,10 +210,11 @@ class WebBrowser : MonoBehaviour
 
 		        if (windowRect.Contains(mousePos))
 		        {
+	        		mousePos.x -= windowRect.x;
+	        		mousePos.y -= windowRect.y;
+		        	
 		        	if (browserRect.Contains(mousePos))
 		        	{
-		        		mousePos.x -= windowRect.x;
-		        		mousePos.y -= windowRect.y;
 		        		mousePos.x -= browserRect.x;
 		        		mousePos.y -= browserRect.y;
 
