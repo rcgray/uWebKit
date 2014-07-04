@@ -24,13 +24,7 @@ class WebBrowser : MonoBehaviour
 
 	void Start()
 	{
-		texHeader = Resources.Load ("Browser/header", typeof(Texture2D)) as Texture2D;
-		texFooter = Resources.Load ("Browser/footer", typeof(Texture2D)) as Texture2D;
-		texBack = Resources.Load ("Browser/btnBack", typeof(Texture2D)) as Texture2D;
-		texForward = Resources.Load ("Browser/btnForward", typeof(Texture2D)) as Texture2D;
-		texReload = Resources.Load ("Browser/btnReload", typeof(Texture2D)) as Texture2D;
-		texLogo = Resources.Load ("Browser/uWebKitIcon", typeof(Texture2D)) as Texture2D;	
-
+		// generate some textures
 		Color c = new Color (0, 1, 0, .2f);
 		texProgress = new Texture2D (32, 32);
 		for (int x = 0; x < 32; x++)
@@ -640,12 +634,13 @@ class WebBrowser : MonoBehaviour
 
 
 	// GUI Textures
-	Texture2D texHeader;
-	Texture2D texFooter;
-	Texture2D texBack;
-	Texture2D texForward;
-	Texture2D texReload;
-	Texture2D texLogo;
+	public Texture2D texHeader;
+	public Texture2D texFooter;
+	public Texture2D texBack;
+	public Texture2D texForward;
+	public Texture2D texReload;
+	public Texture2D texLogo;
+
 	Texture2D texProgress;
 	Texture2D texCloseTab;
 	Texture2D texCloseTabHover;
