@@ -352,6 +352,35 @@ public class UWKWebView : MonoBehaviour
     }
 
     /// <summary>
+    /// Sends a Javascript message to the page
+    /// </summary>
+    public void SendJSMessage(string msgName)
+    {
+        var json = "{}";
+        UWKPlugin.SendJSMessage(ID, msgName, json);
+    }
+
+    /// <summary>
+    /// Sends a Javascript message to the page
+    /// </summary>
+    public void SendJSMessage(string msgName, string key, object value)
+    {
+        var dict = new Dictionary<string,object> ();
+        dict[key] = value;
+        SendJSMessage(msgName, dict);    
+    }
+
+    /// <summary>
+    /// Sends a Javascript message to the page
+    /// </summary>
+    public void SendJSMessage(string msgName, object value)
+    {
+        var dict = new Dictionary<string,object> ();
+        dict["value"] = value;
+        SendJSMessage(msgName, dict);    
+    }
+
+    /// <summary>
     /// Evaluates Javascript on the page
     /// Example with return value: EvaluateJavascript("document.title", (value) => { Debug.Log(value); });
     /// </summary>
