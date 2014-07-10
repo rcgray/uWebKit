@@ -19,11 +19,23 @@ class WebBrowser : MonoBehaviour
     public int Width = 1024;
     public int Height = 600;
 
+    public bool DynamicWidth = true;
+
     // The browser skin being used
     public GUISkin Skin;
 
     void Start()
     {
+
+        if (DynamicWidth)
+        {
+            Width = Screen.width - 256;
+            if (Width < 1024)
+                Width = 1024;
+            if (Width > 2048)
+                Width = 2048;
+        }
+
         // generate some textures
         Color c = new Color (0, 1, 0, .2f);
         texProgress = new Texture2D (32, 32);
@@ -262,11 +274,11 @@ class WebBrowser : MonoBehaviour
         
         // Bookmark Buttons
         
-        if (GUILayout.Button ("Unity Asset Store", buttonStyle, width))
+        if (GUILayout.Button ("Unity3D", buttonStyle, width))
         {
             checkTabs();
             view = tabs[activeTab].View;
-            view.LoadURL ("https://www.assetstore.unity3d.com/en");      
+            view.LoadURL ("https://www.unity3d.com");      
         }
         
         if (GUILayout.Button ("uWebKit", buttonStyle, width))

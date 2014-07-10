@@ -16,8 +16,8 @@
 #ifdef UWK_UNITY_BETA
 
 #define UWK_UNITY_BETA_YEAR 2014
-#define UWK_UNITY_BETA_MONTH 6
-#define UWK_UNITY_BETA_DAY 20
+#define UWK_UNITY_BETA_MONTH 7
+#define UWK_UNITY_BETA_DAY 10
 
 int UWKUnityBeta::GetBetaDaysLeft()
 {

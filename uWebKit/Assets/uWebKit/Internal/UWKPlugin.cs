@@ -76,10 +76,10 @@ public class UWKPlugin
             }
             else 
             {
-                string message = String.Format("There are {0} days left of the uWebKit BETA period", betaCheck);
+                string message = String.Format("There are {0} days left of this expiring uWebKit BETA build", betaCheck);
 
                 if (betaCheck == 0)
-                    message = String.Format("There is less than a day left of the uWebKit BETA period");
+                    message = String.Format("There is less than a day left of this expiring uWebKit BETA build");
 
                 if (!UWK_HasDisplayedBetaMessage())    
                 {
