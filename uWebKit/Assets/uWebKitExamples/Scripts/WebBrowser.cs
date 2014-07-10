@@ -276,6 +276,13 @@ class WebBrowser : MonoBehaviour
             view.LoadURL ("http://www.uwebkit.com");
         }
 
+       if (GUILayout.Button ("GitHub", buttonStyle, width))
+        {
+            checkTabs();
+            view = tabs[activeTab].View;            
+            view.LoadURL ("https://github.com/uWebKit/uWebKit");
+        }
+
         if (GUILayout.Button ("Google", buttonStyle, width))
         {
             checkTabs();
@@ -283,12 +290,6 @@ class WebBrowser : MonoBehaviour
             view.LoadURL ("https://www.google.com");
         }
         
-        if (GUILayout.Button ("GitHub", buttonStyle, width))
-        {
-            checkTabs();
-            view = tabs[activeTab].View;            
-            view.LoadURL ("https://www.github.com");
-        }
 
         if (GUILayout.Button ("Facebook", buttonStyle, width))
         {   

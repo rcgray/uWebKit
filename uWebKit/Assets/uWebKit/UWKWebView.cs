@@ -392,6 +392,18 @@ public class UWKWebView : MonoBehaviour
             UWKPlugin.EvaluateJavascript(ID, javascript);
     }
 
+    /// <summary
+    /// Returns the file:// URL of the applications data path
+    /// </summary>
+    public static string GetApplicationDataURL()
+    {
+        #if UNITY_STANDALONE_WIN
+            return "file:///" + Application.dataPath;       
+        #else
+            return "file://" + Application.dataPath;
+        #endif       
+    }
+
     /// <summary>
     /// Process the mouse given mousePos coordinates
     /// </summary>

@@ -45,7 +45,7 @@ public class SceneExample : MonoBehaviour
 			if (gameObject.GetComponent<SourceCodePopup>() == null)
 			{
 				sourcePopup = gameObject.AddComponent("SourceCodePopup") as SourceCodePopup; 		
-				sourcePopup.URL = "file://" + Application.dataPath + "/StreamingAssets/uWebKit/Examples/Example3WebTextureSource.html";
+				sourcePopup.URL = "https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/uWebKit/Assets/uWebKitExamples/Scripts/WebTexture.cs";
 				webTexture.HasFocus = false;
 			}
 			else

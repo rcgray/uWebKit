@@ -60,7 +60,7 @@ public class WebBrowserExample : MonoBehaviour
 			if (gameObject.GetComponent<SourceCodePopup>() == null)
 			{
 				sourcePopup = gameObject.AddComponent("SourceCodePopup") as SourceCodePopup; 		
-				sourcePopup.URL = "file://" + Application.dataPath + "/StreamingAssets/uWebKit/Examples/Example1WebBrowserSource.html";
+				sourcePopup.URL = "https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/uWebKit/Assets/uWebKitExamples/Scripts/WebBrowser.cs";
 				//webGUI.HasFocus = false;
 			}
 			else

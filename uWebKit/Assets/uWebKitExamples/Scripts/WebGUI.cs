@@ -18,13 +18,13 @@ public class WebGUI : MonoBehaviour
     public bool HasFocus = true;
 
     void OnGUI()
-    {    	
+    {       
         // get the attached view component
         UWKWebView view = gameObject.GetComponent<UWKWebView>();
 
         // if we have a view attached and it is visible
-    	if (view != null && view.Visible())
-    	{
+        if (view != null && view.Visible())
+        {
             // draw it
             Rect r = new Rect (Position.x, Position.y, view.CurrentWidth, view.CurrentHeight);
             GUI.DrawTexture (r, view.WebTexture);
@@ -46,6 +46,6 @@ public class WebGUI : MonoBehaviour
                 if (Event.current.isKey)
                     view.ProcessKeyboard(Event.current);
             }
-    	}    	
+        }       
     }
 }

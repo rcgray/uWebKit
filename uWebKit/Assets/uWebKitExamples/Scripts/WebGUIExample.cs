@@ -58,7 +58,7 @@ public class WebGUIExample : MonoBehaviour
 			if (gameObject.GetComponent<SourceCodePopup>() == null)
 			{
 				sourcePopup = gameObject.AddComponent("SourceCodePopup") as SourceCodePopup; 		
-				sourcePopup.URL = "https://github.com/uWebKit/uWebKit/blob/UWEBKIT-151/uWebKit/Assets/uWebKitExamples/Scripts/WebGUI/WebGUI.cs";
+				sourcePopup.URL = "https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/uWebKit/Assets/uWebKitExamples/Scripts/WebGUI.cs";
 				webGUI.HasFocus = false;
 			}
 			else

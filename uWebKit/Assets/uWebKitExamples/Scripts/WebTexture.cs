@@ -19,70 +19,70 @@ using UWK;
 
 public class WebTexture : MonoBehaviour
 {
-	
-	#region Inspector Fields
-	public bool KeyboardEnabled = true;
-	public bool MouseEnabled = true;
-	public bool Rotate = false;
-	public bool HasFocus = true;
-	#endregion
+    
+    #region Inspector Fields
+    public bool KeyboardEnabled = true;
+    public bool MouseEnabled = true;
+    public bool Rotate = false;
+    public bool HasFocus = true;
+    #endregion
 
-	UWKWebView view;
+    UWKWebView view;
 
-	// Use this for initialization
-	void Start ()
-	{	
+    // Use this for initialization
+    void Start ()
+    {   
 
-    	view = gameObject.GetComponent<UWKWebView>();
+        view = gameObject.GetComponent<UWKWebView>();
 
-		if (renderer != null)
-			renderer.material.mainTexture = view.WebTexture;
+        if (renderer != null)
+            renderer.material.mainTexture = view.WebTexture;
 
-		if (guiTexture != null)
-			guiTexture.texture = view.WebTexture;
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-										
-		if (Rotate)
-			gameObject.transform.Rotate (0, Time.deltaTime * 4.0f, 0);
+        if (guiTexture != null)
+            guiTexture.texture = view.WebTexture;
+        
+    }
+    
+    // Update is called once per frame
+    void Update ()
+    {
+                                        
+        if (Rotate)
+            gameObject.transform.Rotate (0, Time.deltaTime * 4.0f, 0);
 
-		if (!MouseEnabled || !HasFocus)
-			return;			
-			
-		RaycastHit rcast;
-			
-		if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out rcast)) 
-		{
-				
-			if (rcast.collider != GetComponent<MeshCollider> ())
-				return;
-				
-			int x = (int)(rcast.textureCoord.x * (float)view.MaxWidth);
-			int y = view.MaxHeight - (int)(rcast.textureCoord.y * (float)view.MaxHeight);
+        if (!MouseEnabled || !HasFocus)
+            return;         
+            
+        RaycastHit rcast;
+            
+        if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out rcast)) 
+        {
+                
+            if (rcast.collider != GetComponent<MeshCollider> ())
+                return;
+                
+            int x = (int)(rcast.textureCoord.x * (float)view.MaxWidth);
+            int y = view.MaxHeight - (int)(rcast.textureCoord.y * (float)view.MaxHeight);
 
-			Vector3 mousePos = new Vector3();
-			mousePos.x = x; 
-			mousePos.y = y;
-			view.ProcessMouse(mousePos);  
-										
-		}
-		
-	}
-		
-	void OnGUI ()
-	{		
-		if (!KeyboardEnabled || !HasFocus)
-			return;
-		
+            Vector3 mousePos = new Vector3();
+            mousePos.x = x; 
+            mousePos.y = y;
+            view.ProcessMouse(mousePos);  
+                                        
+        }
+        
+    }
+        
+    void OnGUI ()
+    {       
+        if (!KeyboardEnabled || !HasFocus)
+            return;
+        
         if (Event.current.isKey)
         {
             view.ProcessKeyboard(Event.current);
         }
-		
-	}
-		
+        
+    }
+        
 }
