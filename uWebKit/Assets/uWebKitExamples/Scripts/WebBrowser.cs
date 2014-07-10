@@ -30,10 +30,18 @@ class WebBrowser : MonoBehaviour
         if (DynamicWidth)
         {
             Width = Screen.width - 256;
-            if (Width < 1024)
-                Width = 1024;
-            if (Width > 2048)
-                Width = 2048;
+            // mask to 16 bit boundry
+            Width = (int) ((uint) Width & 0xfffffff0);
+
+            Height = Screen.height - 192;
+            // mask to 16 bit boundry
+            Height = (int) ((uint) Height & 0xfffffff0);
+
+            Width = Width < 1024 ? 1024 : Width;
+            Width = Width > 2048 ? 2048 : Width;
+
+            Height = Height < 512 ? 512 : Height;
+            Height = Height > 2048 ? 2048 : Height;
         }
 
         // generate some textures

@@ -24,11 +24,11 @@ public class WebBrowserExample : MonoBehaviour
 
 	SourceCodePopup sourcePopup;
 
-	void Awake ()
+	void Awake()
 	{		
 		browser = GameObject.FindObjectOfType (typeof(WebBrowser)) as WebBrowser;	
 
-		browser.X = Screen.width / 2 - browser.Width / 2;		
+		browser.X = Screen.width / 2 - browser.Width / 2;
 	}	
 
 	void SourcePopupClosed()
