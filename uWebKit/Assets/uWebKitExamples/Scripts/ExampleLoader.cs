@@ -68,7 +68,7 @@ public class ExampleLoader : MonoBehaviour
         if (Event.current.isKey)
             view.ProcessKeyboard(Event.current);
 		
-		x = 40;
+		x -= (buttonWidth + 32);
 		y = Screen.height / 2 - 720/2;
 		
 		if (y < 0)
