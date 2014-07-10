@@ -100,7 +100,7 @@ public class UWKWebView : MonoBehaviour
     {
         Forward = 0,
         Back
-    }	
+    }   
 
     /// <summary>
     /// Gets the current width of the UWKWebView
@@ -398,7 +398,7 @@ public class UWKWebView : MonoBehaviour
     public void ProcessMouse(Vector3 mousePos)    
     {
 
-		//mousePos.y = Screen.height - mousePos.y;    	
+        //mousePos.y = Screen.height - mousePos.y;      
 
         if ((int)mousePos.x != lastMouseX || (int)mousePos.y != lastMouseY)
         {
