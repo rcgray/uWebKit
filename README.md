@@ -59,7 +59,7 @@ uWebKit2 will be inexpensive with no-nonsense licenses for both Binary and Sourc
 
 #### Source Code License
 
-If you're interested in a [Source License](https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/UWEBKIT_LICENSE_SOURCE.txt) please contact: sales@uwebkit.com   
+Binary licenses will be sold exclusively on the Unity Asset Store.  If you're interested in a [Source License](https://github.com/uWebKit/uWebKit/blob/uWebKit2-Beta/UWEBKIT_LICENSE_SOURCE.txt) please contact: sales@uwebkit.com   
 
 #### Issues
 
