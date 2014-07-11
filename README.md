@@ -6,13 +6,9 @@
 
 This repository contains the full C++ and C# source code to [uWebKit 2.0](http://www.uWebKit.com) 
 
-#### Download uWebKit 2.0 Beta 
+### Download uWebKit 2.0 Beta 
 
 ##### Download link coming soon!
-
-#### Purchase uWebKit Binary License in the Unity Asset Store
-
-##### Binary licenses coming soon!
 
 #### What is uWebKit2?
 
@@ -26,7 +22,7 @@ uWebKit2 is currently in open beta and available for download from Github.  We p
 
 uWebKit2 will be inexpensive with no-nonsense licenses for both Binary and Source licensees.  uWebKit2 is a free upgrade for all uWebKit1 license holders.  uWebKit2 has many improvements and we recommend all uWebKit1 users upgrade once available.  Please note that we will continue supporting iOS solely in the uWebKit1 product.
 
-#### uWebKit2 for Unity Pro Features:
+### uWebKit2 for Unity Pro Features:
 
 + Excellent integration with the Unity3D editor with simple deployment   
 
