@@ -76,8 +76,11 @@ void Engine::CreateWebView(uint32_t id, int maxWidth, int maxHeight, const QUrl&
 
     WebView* view = new WebView(id, maxWidth, maxHeight);
     viewMap_.insert(id, view);
-    view->load(initialURL);
-    //view->show();
+
+    // only load if initial URL has length
+    if (initialURL.toString().length() > 0)
+        view->load(initialURL);
+
 
     UWKMessage msg;
     msg.type = UMSG_GPUSURFACE_INFO;

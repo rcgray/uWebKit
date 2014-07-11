@@ -6,7 +6,7 @@
 *******************************************/
 
 
-#define ENABLE_DEV_BUTTONS
+//#define ENABLE_DEV_BUTTONS
 
 using UnityEngine;
 using System.Collections;
@@ -28,7 +28,7 @@ public class WebBrowserExample : MonoBehaviour
 	{		
 		browser = GameObject.FindObjectOfType (typeof(WebBrowser)) as WebBrowser;	
 
-		browser.X = Screen.width / 2 - browser.Width / 2;
+		browser.X = 160 + 32;
 	}	
 
 	void SourcePopupClosed()

@@ -631,9 +631,14 @@ public class UWKWebView : MonoBehaviour
         WebTexture.SetPixels32(colors);
         WebTexture.Apply();
 
-        ID = UWKCore.CreateView(this, MaxWidth, MaxHeight, URL, WebTexture.GetNativeTexturePtr());      
+        ID = UWKCore.CreateView(this, MaxWidth, MaxHeight, "", WebTexture.GetNativeTexturePtr());      
 
     }   
+
+    void Start()
+    {
+        LoadURL(URL);
+    }
 
     void OnDestroy()
     {
