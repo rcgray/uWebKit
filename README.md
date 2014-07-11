@@ -1,4 +1,7 @@
-##### uWebKit2 is currently in open beta and the Unity package is available for testing. We plan to release the binary version on the Unity Asset Store after the beta period.
+
+
+#### uWebKit 2.0 is currently in open beta and the Unity package is available for testing.  For download information, please see [Getting Started with uWebKit 2.0](https://github.com/uWebKit/uWebKit/wiki/Getting-Started-with-uWebKit-2.0)
+
 
 ### uWebKit HTML5 for Unity Pro - Source Repository
 
@@ -8,7 +11,7 @@ This repository contains the full C++ and C# source code to [uWebKit 2.0](http:/
 
 ### Download uWebKit 2.0 Beta 
 
-##### Download link coming soon!
+For download information, please see [Getting Started with uWebKit 2.0](https://github.com/uWebKit/uWebKit/wiki/Getting-Started-with-uWebKit-2.0)
 
 #### What is uWebKit2?
 
