@@ -9,6 +9,10 @@
 
 This repository contains the full C++ and C# source code to [uWebKit 2.0](http://www.uWebKit.com) 
 
+### Unity Forums Discussion Thread
+
+Please use this Unity forum thread for uWebKit discussion [http://forum.unity3d.com/threads/uwebkit-html5-for-unity-pro.193978](http://forum.unity3d.com/threads/uwebkit-html5-for-unity-pro.193978)
+
 ### Download uWebKit 2.0 Beta 
 
 For download information, please see [Getting Started with uWebKit 2.0](https://github.com/uWebKit/uWebKit/wiki/Getting-Started-with-uWebKit-2.0)
