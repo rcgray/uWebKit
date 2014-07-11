@@ -7,7 +7,7 @@
 
 ![alt uWebKit](http://www.uwebkit.com/static/downloads/uwebkit/uWebKit_FeaturePage.jpg)
 
-This repository contains the full C++ and C# source code to [uWebKit 2.0](http://www.uWebKit.com) 
+This repository contains the full C++ and C# source code to uWebKit 2.0
 
 ### Download uWebKit 2.0 Beta1
 
