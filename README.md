@@ -27,7 +27,7 @@ uWebKit2 is currently in open beta and available for download from Github.  We p
 
 #### How much will it cost?
 
-uWebKit2 will be inexpensive with no-nonsense licenses for both Binary and Source licensees.  uWebKit2 is a free upgrade for all uWebKit1 license holders.  uWebKit2 has many improvements and we recommend all uWebKit1 users upgrade once available.  Please note that we will continue supporting iOS solely in the uWebKit1 product.
+uWebKit2 will be inline with other Unity assets under no-nonsense licenses for both Binary and Source licensees.  uWebKit2 is a free upgrade for all uWebKit1 license holders.  uWebKit2 has many improvements and we recommend all uWebKit1 users upgrade once available.  Please note that we will continue supporting iOS solely in the uWebKit1 product.
 
 ### uWebKit2 for Unity Pro Features:
 
