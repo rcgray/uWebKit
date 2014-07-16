@@ -7,8 +7,6 @@
 
 using UnityEngine;
 
-using UWK;
-
 public class WebGUI : MonoBehaviour
 {
     // The position of the gui on the screen

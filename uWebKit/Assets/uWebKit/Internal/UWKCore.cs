@@ -18,9 +18,6 @@ using UnityEditor;
 
 // INTERNAL UWEBKIT CORE
 
-namespace UWK
-{
-
 /// <summary>
 /// Internal Web Core Component
 /// </summary>
@@ -177,7 +174,7 @@ public class UWKCore : MonoBehaviour
                 break;
             case UWKMessageType.UMSG_JAVASCRIPT_MESSAGE:
                 var json = UWKPlugin.GetMessageString(ref msg, 1);
-                var dict = Json.Deserialize(json) as Dictionary<string,object>;
+                var dict = UWKJson.Deserialize(json) as Dictionary<string,object>;
                 view.JSMessageReceived(view, UWKPlugin.GetMessageString(ref msg, 0), json, dict);            
                 break;
             case UWKMessageType.UMSG_VIEW_CONTENTSIZECHANGED:
@@ -235,4 +232,3 @@ public class UWKCore : MonoBehaviour
 
 }
 
-}

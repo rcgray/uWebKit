@@ -11,9 +11,6 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-namespace UWK
-{    
-
 /// <summary>
 /// URLChangedDelegate - Event fired when the URL has been changed
 /// either by user input or due to a page redirect
@@ -347,7 +344,7 @@ public class UWKWebView : MonoBehaviour
     /// </summary>
     public void SendJSMessage(string msgName, Dictionary<string,object> msgValues)
     {
-        var json = Json.Serialize(msgValues);
+        var json = UWKJson.Serialize(msgValues);
         UWKPlugin.SendJSMessage(ID, msgName, json);
     }
 
@@ -742,10 +739,6 @@ public class UWKWebView : MonoBehaviour
     static string createURL;
 
     #endregion
-
-
-}
-
 
 
 }

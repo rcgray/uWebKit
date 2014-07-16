@@ -9,8 +9,6 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-using UWK;
-
 /// <summary>
 /// Basic example of using a UWKWebView on a 3D Unity surface
 /// </summary>

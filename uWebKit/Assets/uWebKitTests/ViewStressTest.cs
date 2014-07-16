@@ -2,8 +2,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-using UWK;
-
 public class ViewStressTest : MonoBehaviour
 {
 	float time = 0.0f;

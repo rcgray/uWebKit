@@ -7,8 +7,6 @@
 
 using UnityEngine;
 
-using UWK;
-
 class WebBrowser : MonoBehaviour
 {
 

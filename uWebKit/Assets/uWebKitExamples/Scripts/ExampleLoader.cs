@@ -7,7 +7,6 @@
 
 using UnityEngine;
 using System.Collections;
-using UWK;
 
 #if UNITY_EDITOR
 using UnityEditor;

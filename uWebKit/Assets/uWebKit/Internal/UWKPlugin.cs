@@ -18,8 +18,6 @@ using UnityEditor;
 
 // INTERNAL UWEBKIT PLUGIN IMPLEMENTATION
 
-namespace UWK
-{
 
 /// <summary>
 /// Internal Plugin class for C#/C++ interop
@@ -55,7 +53,7 @@ public class UWKPlugin
         app["graphicsDeviceVersion"] = SystemInfo.graphicsDeviceVersion;
         app["imeEnabled"] = UWKCore.IMEEnabled;
 
-        var json = Json.Serialize(djson);
+        var json = UWKJson.Serialize(djson);
         var nativeString = NativeUtf8FromString(json);
 
         int betaCheck = UWK_Initialize(log, error, processMessage, nativeString);
@@ -410,5 +408,5 @@ public delegate void LogErrorDelegate (string message, bool fatal);
 [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 public delegate void AsyncMessageDelegate (uint id, string value);
 
-}
+
 

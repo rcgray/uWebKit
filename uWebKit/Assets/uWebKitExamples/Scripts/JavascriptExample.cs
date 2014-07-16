@@ -7,7 +7,6 @@
 
 using UnityEngine;
 using System.Collections.Generic;
-using UWK;
 
 /// <summary>
 /// Simple menu for WebGUI Example

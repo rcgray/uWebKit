@@ -7,7 +7,6 @@
 
 using UnityEngine;
 using System.Collections;
-using UWK;
 using System;
 
 public class SourceCodePopup : MonoBehaviour

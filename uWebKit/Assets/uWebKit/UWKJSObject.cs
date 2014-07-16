@@ -11,9 +11,6 @@ using System.Collections;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
-namespace UWK
-{    
-
 /// <summary>
 /// JSObject Allows you to create Javascript objects which are accessible from web content and persistent across page loads
 /// See UnityInfoPage.cs for example usage.  Please note that the JSObjects are unidirectional from Unity -> Javascript
@@ -73,6 +70,5 @@ public class JSObject
 	{
 		UWKPlugin.RemoveJSObject(objectName);		
 	}
-}
 
 }

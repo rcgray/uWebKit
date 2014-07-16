@@ -7,7 +7,6 @@
 
 using UnityEngine;
 using System.Collections;
-using UWK;
 
 /// <summary>
 /// Simple menu for Scene Example
