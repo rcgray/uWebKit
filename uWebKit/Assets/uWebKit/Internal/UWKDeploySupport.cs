@@ -13,8 +13,13 @@ public static class UWKDeploySupport
 {
     static void removePaths(List<string> paths)
     {
-    	foreach (var path in paths)
+    	foreach (var _path in paths)
     	{
+    		string path = _path;
+    		
+    		if (Application.platform == RuntimePlatform.OSXEditor)
+    			path = path.Replace("/", "\\");
+    		
     		if (Directory.Exists(path))
     			Directory.Delete(path, true);
 
@@ -40,36 +45,32 @@ public static class UWKDeploySupport
 
     	bool windowsBuild = target == BuildTarget.StandaloneWindows || target == BuildTarget.StandaloneWindows64;
 
-		if (Application.platform == RuntimePlatform.OSXEditor)
-		{
-			osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86");
-			osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86_64");
-			osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Windows/x86");
-			osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Windows/x86_64");
+		osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86");
+		osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86_64");
+		osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Windows/x86");
+		osxDeploy.Add(path + "/Contents/Data/StreamingAssets/uWebKit/Windows/x86_64");
 
-			winDeploy.Add(path + "/StreamingAssets/uWebKit/Mac/x86");
-			winDeploy.Add(path + "/StreamingAssets/uWebKit/Mac/x86_64");
-			winDeploy.Add(path + "/StreamingAssets/uWebKit/Windows/x86");
-			winDeploy.Add(path + "/StreamingAssets/uWebKit/Windows/x86_64");
+		winDeploy.Add(path + "/StreamingAssets/uWebKit/Mac/x86");
+		winDeploy.Add(path + "/StreamingAssets/uWebKit/Mac/x86_64");
+		winDeploy.Add(path + "/StreamingAssets/uWebKit/Windows/x86");
+		winDeploy.Add(path + "/StreamingAssets/uWebKit/Windows/x86_64");
 
-	    	if (target == BuildTarget.StandaloneWindows)
-	    	{
-	    		winDeploy.Remove(path + "/StreamingAssets/uWebKit/Windows/x86");
-	    	}
-	    	else if (target == BuildTarget.StandaloneWindows64)
-	    	{
-	    		winDeploy.Remove(path + "/StreamingAssets/uWebKit/Windows/x86_64");
-	    	}
-	    	else if (target == BuildTarget.StandaloneOSXIntel)
-	    	{
-	    		osxDeploy.Remove(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86");
-	    	}
-	    	else if (target == BuildTarget.StandaloneOSXIntel64)
-	    	{	
-	    		osxDeploy.Remove(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86_64");
-	    	}
-
-		}
+    	if (target == BuildTarget.StandaloneWindows)
+    	{
+    		winDeploy.Remove(path + "/StreamingAssets/uWebKit/Windows/x86");
+    	}
+    	else if (target == BuildTarget.StandaloneWindows64)
+    	{
+    		winDeploy.Remove(path + "/StreamingAssets/uWebKit/Windows/x86_64");
+    	}
+    	else if (target == BuildTarget.StandaloneOSXIntel)
+    	{
+    		osxDeploy.Remove(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86");
+    	}
+    	else if (target == BuildTarget.StandaloneOSXIntel64)
+    	{	
+    		osxDeploy.Remove(path + "/Contents/Data/StreamingAssets/uWebKit/Mac/x86_64");
+    	}
 
 		if (windowsBuild)
 			removePaths(winDeploy);
