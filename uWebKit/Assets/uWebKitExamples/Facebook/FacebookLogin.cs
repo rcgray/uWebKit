@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class FacebookLoginInfo
 {
-	public UWKWebView WebView;
-	public string AccessToken;
+    public UWKWebView WebView;
+    public string AccessToken;
 }
 
 public class FacebookLogin : MonoBehaviour
