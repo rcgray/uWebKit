@@ -39,8 +39,6 @@ public class FacebookLogin : MonoBehaviour
 
     void Start()
     {
-
-        //UWKCore.ClearCookies();
         windowRect = new Rect (X, Y, Width + 16, Height + 16);        
 
         view = UWKWebView.AddToGameObject(gameObject, FacebookLoginSite, Width, Height);
@@ -88,6 +86,13 @@ public class FacebookLogin : MonoBehaviour
                     handleLoggedIn();
                 }               
             }
+
+            GUILayout.Space(64);
+
+            if (GUILayout.Button("Clear\nCookies"))
+            {
+                UWKCore.ClearCookies();
+            }
         }
         else if (state == State.Login)
         {           
@@ -118,7 +123,7 @@ public class FacebookLogin : MonoBehaviour
     void OnGUI ()
     {
         if (state == State.LoggedIn)
-        return;
+            return;
 
         windowRect = GUILayout.Window (unityWindowId, windowRect, windowFunction, "");
 
@@ -146,7 +151,7 @@ public class FacebookLogin : MonoBehaviour
                 view.ProcessKeyboard(Event.current);
 
                 if (Event.current.keyCode == KeyCode.Tab || Event.current.character == '\t')
-                Event.current.Use ();
+                    Event.current.Use ();
             }
         }
     }
