@@ -16,8 +16,8 @@ public static class UWKDeploySupport
     	foreach (var _path in paths)
     	{
     		string path = _path;
-    		
-    		if (Application.platform == RuntimePlatform.OSXEditor)
+
+    		if (Application.platform != RuntimePlatform.OSXEditor)
     			path = path.Replace("/", "\\");
     		
     		if (Directory.Exists(path))
