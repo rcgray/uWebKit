@@ -397,7 +397,10 @@ public class UWKWebView : MonoBehaviour
         #if UNITY_STANDALONE_WIN
             return "file:///" + Application.dataPath;       
         #else
-            return "file://" + Application.dataPath;
+            if (Application.isEditor)
+                return "file://" + Application.dataPath;
+            else
+                return "file://" + Application.dataPath + "/Data";
         #endif       
     }
 
