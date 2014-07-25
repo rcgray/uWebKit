@@ -33,7 +33,7 @@ uWebKit2 will be inline with other Unity assets under no-nonsense licenses for b
 
 + Excellent integration with the Unity3D editor with simple deployment   
 
-+ Example scenes and prefabs, Multitab Browser, 2D WebGUI, 3D WebTexture, Javascript Messaging, more coming soon
++ Example scenes and prefabs, Multitab Browser, 2D WebGUI, 3D WebTexture, Javascript Messaging, Facebook login, etc
 
 + Support for many HTML5 web standards including content and cookie caching, CSS3, video, and local storage
 
