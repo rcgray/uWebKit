@@ -9,7 +9,7 @@
 
 This repository contains the full C++ and C# source code to uWebKit 2.0
 
-### Download uWebKit 2.0 Beta1
+### Download uWebKit 2.0 Beta2
 
 For download information, please see [Getting Started with uWebKit 2.0](https://github.com/uWebKit/uWebKit/wiki/Getting-Started-with-uWebKit-2.0)
 
