@@ -72,6 +72,13 @@ public class FacebookLogin : MonoBehaviour
 
         GUILayout.BeginVertical();
 
+        GUIStyle style = new GUIStyle(GUI.skin.textArea);
+        style.fontSize = 24;
+
+        string text = @"This example shows everything needed to implement a login to Facebook dialog using uWebKit2";
+
+        GUILayout.TextArea(text, style);
+
         if (state == State.Start)
         {
             if (GUILayout.Button(LoginTexture))
@@ -89,7 +96,7 @@ public class FacebookLogin : MonoBehaviour
 
             GUILayout.Space(64);
 
-            if (GUILayout.Button("Clear\nCookies"))
+            if (GUILayout.Button("Clear\nCookies",  GUILayout.MaxWidth(100)))
             {
                 UWKCore.ClearCookies();
             }
